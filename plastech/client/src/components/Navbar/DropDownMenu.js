@@ -4,14 +4,14 @@ import { CSSTransition } from 'react-transition-group'
 
 //Icons
 import { ReactComponent as HomeIcon } from '../../icons/home.svg'
-import { ReactComponent as BellIcon } from '../../icons/bell.svg'
+// import { ReactComponent as BellIcon } from '../../icons/bell.svg'
 import { ReactComponent as ArrowIcon } from '../../icons/backArrow.svg';
 
 //CSS styles
-import './Navbar.css';
+import './Dropdown.css';
 
 
-function DropDownMenu() {
+export default function DropDownMenu() {
   const[activeMenu, setActiveMenu] = useState('main')
 
   function DropDownItem(props) {
@@ -26,7 +26,7 @@ function DropDownMenu() {
         {props.rightIcon ? <span className='icon-button icon-right'>{props.rightIcon}</span> : null}
       </Link>
     );
-  }  
+  };
 
   return (
     <div className='dropdown'>
@@ -40,13 +40,12 @@ function DropDownMenu() {
             <DropDownItem>My profile</DropDownItem>
             <DropDownItem
               leftIcon={<HomeIcon/>}
-              rightIcon={<BellIcon/>}
+              // rightIcon={<BellIcon/>}
               goToMenu="settings">
                 Settings
             </DropDownItem>
           </div>
       </CSSTransition>
-
 
       <CSSTransition
         in = {activeMenu === 'settings'}
@@ -64,6 +63,4 @@ function DropDownMenu() {
       </CSSTransition>
     </div>
   );
-}
-
-export default DropDownMenu;
+};

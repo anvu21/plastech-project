@@ -1,0 +1,84 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  min-width: 100%;
+  min-height: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  color: var(--color-dark);
+}
+
+.board {
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  flex-grow: 1;
+}
+
+.board > .title{
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  /*Font styling*/
+  font-family: ElaineSans-ExtraBold;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+#leaderboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+
+  flex-grow: 1;
+  margin: 1em 20em 0 20em;
+}
+
+#leaderboard .profile{
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+
+  flex-grow: inherit;
+  text-align: left;
+  border-radius: 7px 7px 7px 7px; /*For curved edges*/
+}
+
+#leaderboard .profile:hover {
+  filter: brightness(1.1);
+  filter: contrast(1.1);
+}
+
+#leaderboard .profile .item{
+  display: flex;
+
+  flex-grow: 0;
+  padding: 3em;
+}
+
+.points {
+  margin-left: auto; /*Makes sure points are on the right side*/
+}
+
+#leaderboard .profile img{
+  width: 20%;
+  border-radius: 50%;
+}
+
+#leaderboard .profile svg {
+  fill:var(--text-color);
+  width: 50px;
+  height: 50px;
+}
+

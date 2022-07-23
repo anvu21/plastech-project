@@ -1,28 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 const ListTeam = () => {
-  const [team, setteam] = useState([]);
-
- 
-
-
-
-  const getteam = async () => {
-    try {
-      const response = await fetch("/team");
-      const jsonData = await response.json();
-
-      setteam(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getteam();
-  }, []);
-
-  console.log(team);
+  let team = FetchTeamData();
 
   return (
     <Fragment>
@@ -51,5 +30,31 @@ const ListTeam = () => {
     </Fragment>
   );
 };
+
+
+const FetchTeamData = () => {
+  const [team, setteam] = useState([]);
+
+  const getteam = async () => {
+    try {
+      const response = await fetch("/team");
+      const jsonData = await response.json();
+
+      setteam(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getteam();
+  }, []);
+
+  console.log(team);
+
+  return (team);
+}
+
 //<Editteam todo={todo} />
 export default ListTeam;
+export {FetchTeamData};

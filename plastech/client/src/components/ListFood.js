@@ -5,7 +5,6 @@ const ListFood = () => {
   const [food, setfood] = useState([]);
 
   //delete food function
-
   const deleteFood = async id => {
     try {
       //console.log(id)

@@ -1,4 +1,6 @@
 import React, { Fragment,useState } from "react";
+import AnimatedPage from "../components/AnimatedPage.js";
+
 // import GoogleLogin from "react-google-login";
 //import ListFood from "./components/ListFood";
 import ListTeam from "../components/ListTeams.js";
@@ -45,34 +47,36 @@ const Signin = () => {
   };
 
   return (
-    <Fragment>
-      <h1>Google Login</h1>
-        <div>
-        </div>
-        <h2 className="title">Add Point to team</h2>
+    <AnimatedPage>
+      <Fragment>
+        <h1>Google Login</h1>
+          <div>
+          </div>
+          <h2 className="title">Add Point to team</h2>
 
-        <form className="d-flex mt-5" onSubmit={onSubmitForm}>
-          
-        <select value={team} name="team" onChange={(e) => onChange(e)} className="foodinput">
-            <option value="red">red</option>
-            <option value="blue">blue</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
-        </select>
-        <input
-          type="number"
-          name="point"
-          value={point}
-          placeholder="point"
-          onChange={(e) => onChange(e)}
-          className="pointInput"
-        />
-        <button className="addbutton">Add</button>
-      </form>
-      <div className="container">
-      <ListTeam />
-      </div>
-    </Fragment>
+          <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+            
+          <select value={team} name="team" onChange={(e) => onChange(e)} className="foodinput">
+              <option value="red">red</option>
+              <option value="blue">blue</option>
+              <option value="green">green</option>
+              <option value="yellow">yellow</option>
+          </select>
+          <input
+            type="number"
+            name="point"
+            value={point}
+            placeholder="point"
+            onChange={(e) => onChange(e)}
+            className="pointInput"
+          />
+          <button className="addbutton">Add</button>
+        </form>
+        <div className="container">
+        <ListTeam />
+        </div>
+      </Fragment>
+    </AnimatedPage>
   );
 };
   

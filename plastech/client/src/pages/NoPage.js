@@ -1,9 +1,14 @@
 import React from "react";
 
-const NoPage = () => {
+//Components
+import AnimatedPage from "../components/AnimatedPage";
+
+function NoPage() {
   return (
-    <div>
+    <AnimatedPage>
       <h1>404 ERROR...</h1>
-    </div>
+    </AnimatedPage>
   );
 };
+
+export default NoPage;

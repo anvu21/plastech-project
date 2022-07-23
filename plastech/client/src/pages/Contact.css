@@ -1,0 +1,152 @@
+#about-sect,
+#contacts-sect,
+#members-sect {
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+
+#about-sect > h1,
+#contacts-sect > h1,
+#members-sect > h1 {
+  padding-top: 2rem;
+  text-align: center;
+  font-family: Beon-medium;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+#about-sect > p,
+#members-sect > p {
+  display: block;
+  font-size: 1rem;
+  margin: 1rem 10rem;
+  text-align: center;
+}
+
+#about-sect {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-list {
+  background-color: #47D1AE;
+
+  display: flex;
+  justify-content: center;
+}
+
+span.contacts-list-title {
+  font-family: Beon-Medium;
+  font-size: 3rem;
+  margin: 1rem 3rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.contacts-list > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  list-style: none;
+}
+
+.contacts-list > ul > li {
+  display: flex;
+  flex-direction: column;
+
+  margin: 10px 0px;
+  padding: 2rem;
+
+  font-size: 1.1rem;
+  border-radius: 30px;
+
+  transition: all var(--speed) ease-in-out;
+}
+
+.contacts-list > ul > li:hover {
+  box-shadow: 0 5px 5px 3px #1FA595;
+  color: #565656;
+}
+
+.contacts-list > ul > li:hover a.email-link {
+  /*Transitions*/
+  color: #0B0B45;
+  /* color: inherit; */
+  font-weight: 600;
+}
+
+/*Email Links*/
+a.email-link,
+a.email-link:link,
+a.email-link:visited,
+a.email-link:active,
+a.email-link:focus {
+  outline: none !important; /*Removes blue highlighting after click*/
+  text-decoration: none; /*Removes underline when hovering*/
+  position: relative;
+
+  /*Transitions*/
+  color: var(--text-color);
+  transition: all var(--speed) ease-in-out;
+}
+
+a.email-link::after, 
+a.email-link::before {
+  content: '';
+  background: linear-gradient(210deg,#8CD987 0%,#1FA595 100%);
+  position: absolute;
+  --line-gap: -4px;
+
+  width: 100%;
+  height: 4px;
+
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+a.email-link:hover::after,
+a.email-link:hover::before {
+  transform: scaleX(1);
+}
+
+/*Overline*/
+a.email-link::before {
+  top: var(--line-gap);
+  left: 0;
+  transform-origin: top left;
+}
+
+/*Underline*/
+a.email-link::after {
+  bottom: var(--line-gap);
+  right: 0;
+  transform-origin: bottom right;
+}
+
+.contacts-list a.email-link + svg {
+  /*Positioning*/
+  position: relative;
+  top: 8px;
+  left: 8px;
+
+  /*General styling*/
+  width: 30px;
+  opacity: 0;
+
+  /*Transitions*/
+  transition: all var(--speed) ease-in-out;
+}
+
+.contacts-list a.email-link:hover + svg {
+  /*General styling*/
+  opacity: 1;
+
+  /*Animations*/
+  animation: bounce .35s alternate ease infinite;
+}
+
+@keyframes bounce {
+	from { transform: translateY(-6px); }
+	to   { transform: translateY(3px); }
+}

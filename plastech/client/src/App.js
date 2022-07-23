@@ -1,53 +1,36 @@
 import React from 'react';
-import { Routes, Route, Outlet} from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 //Components
 import NavbarLayout from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 //Pages
 import Home from './pages/Home';
-import About from './pages/About';
 import Blogs from './pages/Blogs';
 import Signin from './pages/signin';
 import Contact from './pages/Contact';
-import Board from './components/Scoreboard/Board';
+import NoPage from './pages/NoPage';
+import Board from './components/Leaderboard/Board';
   
 export default function App() {
+  const location = useLocation();
   return (
     <>
       <NavbarLayout />
       <Outlet />
-      <Routes>
-        <Route index path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Blogs" element={<Blogs />} />
-        <Route path="/Signin" element={<Signin />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Scoreboard" element={<Board />} />
-      </Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
+          <Route index path="/" element={<Home />} />
+          <Route path="/Blogs" element={<Blogs />} />
+          <Route path="/Signin" element={<Signin />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Leaderboard" element={<Board />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </AnimatePresence>
+      <Footer />
     </>
   );
 };
-
-
-//------- Previous App function -----//
-// import React, { Fragment } from "react";
-// import "./App.css";
-
-// //components
-
-// import InputFood from "./components/InputFood";
-// import ListFood from "./components/ListFood";
-
-// function App() {
-//   return (
-//     <Fragment>
-//       <div className="container">
-//         <InputFood />
-//         <ListFood />
-//       </div>
-//     </Fragment>
-//   );
-// }
-// //<ListFood />
-// export default App;
